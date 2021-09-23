@@ -4,7 +4,6 @@ const StarRating = (props) => {
       {[...Array(10)].map((star, index) => {
         index += 1;
         return (
-       
             <button
             type="button"
             className={index <= (props.hover || props.rating*2) ? "on" : "off"}
@@ -15,8 +14,6 @@ const StarRating = (props) => {
           >
             <span className="star">&#9733;</span>
           </button>
-        
-      
         );
       })}
       {props.editable && !props.add && <span id="reload" onClick={()=>{props.handleRating(0);props.handleHover(0);}}>&#x21bb;</span>}

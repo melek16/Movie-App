@@ -4,7 +4,8 @@ const check=(obj,rating)=>{
     let arr=Object.values(obj)
     let test=true
     let i=0;
-    while(test && i<arr.length-1){
+    while(test && i<arr.length){
+        console.log(arr[i])
         test=arr[i].trim()
         i++
     }

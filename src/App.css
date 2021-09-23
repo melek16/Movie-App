@@ -109,7 +109,7 @@ body{
   display: flex;
   transform:scaleY(0);
   transform-origin:bottom;
-  transition: transform 0.25s ease-in;
+ 
 }
 .description >p{
   padding: 5%;
