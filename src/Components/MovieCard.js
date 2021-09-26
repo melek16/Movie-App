@@ -1,8 +1,10 @@
 import React from 'react'
+
 import StarRating from './StarRating'
 
 const MovieCard = ({title, description, posterURL, rating},key) => {
     return (
+    
         <div className='movieCard' >
             <div className='title_and_rating'>
                 <h5>{title}</h5>
@@ -11,6 +13,7 @@ const MovieCard = ({title, description, posterURL, rating},key) => {
            <img src={posterURL} alt='' />
            <div className="description"><p>{description}</p></div>
         </div>
+  
     )
 }
 
