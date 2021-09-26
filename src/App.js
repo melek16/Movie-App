@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import './darkMode.css'
 import AddMovieCard from './Components/AddMovieCard';
 import Filter from './Components/Filter';
 import Footer from './Components/Footer';
@@ -18,13 +19,14 @@ function App() {
   const [newRating, setNewRating] = useState()
   const [newHover, setNewHover] = useState()
   const [newMovie, setNewMovie] = useState({title:"",description:"",posterURL:""})
+  const [mode, setMode] = useState(true)  //true = light
   return (
     <Router>
     <div className="App">
       {showAddMovie && <AddMovieCard rating={newRating} handleRating={(i)=>setNewRating(i)}
        hover={newHover} handleHover={(i)=>setNewHover(i)} handleX={()=>setShowAddMovie(!showAddMovie)}
        newMovie={newMovie} handleChange={i=>setNewMovie(i)} handleSubmit={(newMovie)=>setListOfMovies([...listOfMovies,newMovie])}/>}
-      <NavBar/>
+      <NavBar mode={mode} handleToggle={()=>{setMode(!mode);document.querySelector('body').className=mode ?'darkbody':''}}/>
       <Switch>
         <Route exact path="/">
         <Filter search={search} handleChange={e=>setSearch(e.target.value)} handleSubmit={(e)=>{e.preventDefault();setSearch(search)}} rating={rating} handleRating={(i)=>setRating(i)} hover={hover} handleHover={(i)=>setHover(i)}/>

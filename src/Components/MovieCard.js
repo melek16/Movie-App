@@ -8,7 +8,7 @@ const MovieCard = ({title, description, posterURL, rating},key) => {
         <div className='movieCard' >
             <div className='title_and_rating'>
                 <h5>{title}</h5>
-                <div><StarRating rating={rating} editable={false} /></div>
+                <div><StarRating rating={rating}/></div>
             </div>
            <img src={posterURL} alt='' />
            <div className="description"><p>{description}</p></div>

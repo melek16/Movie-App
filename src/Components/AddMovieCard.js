@@ -25,7 +25,7 @@ const AddMovieCard = (props) => {
             <form onSubmit={e=>handleSubmit(e)}>
                 <input type="text" placeholder="Title" value={props.newMovie.title} onChange={(e)=>props.handleChange({...props.newMovie,title:e.target.value})} />
                 <input type="text" placeholder="Poster url" value={props.newMovie.posterURL} onChange={(e)=>props.handleChange({...props.newMovie,posterURL:e.target.value})}/>
-                <div><StarRating add={true} editable={true} handleRating={props.handleRating} rating={props.rating} hover={props.hover} handleHover={props.handleHover}/></div>
+                <div><StarRating handleRating={props.handleRating} rating={props.rating} hover={props.hover} handleHover={props.handleHover}/></div>
                 
                 <textarea type="text" placeholder="Description" rows='7' value={props.newMovie.description} onChange={(e)=>props.handleChange({...props.newMovie,description:e.target.value})}/>
                 <button type="submit" id="submitNewMovie">Add to the list</button>

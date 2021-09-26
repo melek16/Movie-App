@@ -1,0 +1,26 @@
+::-webkit-scrollbar-track{
+    background: #6b9997;
+  }
+  ::-webkit-scrollbar-thumb{
+    background: #366864;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475963;
+  }
+.darkbody,.darkbody #Search{
+    background:#323c42;
+      color: white;
+}
+.darkbody .NavBar,.darkbody #footer{
+    background:#3d515c;
+}
+.darkbody .movieCard > div{
+    background: rgba(80, 100, 112, 0.875);
+}
+.darkbody #AddMovieCard,.darkbody #AddMovieCard #submitNewMovie{
+    background:rgba(48, 85, 83, 0.97);
+}
+.darkbody #AddMovieCard #submitNewMovie:hover{
+    background:rgb(62, 105, 104);
+  } 
+

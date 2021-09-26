@@ -19,15 +19,17 @@ html,body,#root{
   height: 100%;
 }
 body{
-  background: #f8f8fa;
   overflow-y: overlay;
+  background: #f8f8fa;
 }
 /*NavBar*/
 .NavBar{
-  background: white;
   width: 100%;
   height: 60px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
 }
 .NavBar a{
   height: 100%;
@@ -44,8 +46,8 @@ body{
   align-items: center;
   justify-content: center;
   color: #448884;
-  padding: 0 1%;
   border-bottom: 2px solid #448884;
+  transition:background-color 1s
 }
 #logo h2{
   margin: 0 0 0 4%;
@@ -59,8 +61,9 @@ body{
   background: #448884;
   cursor: pointer;
   color: #F4F4F9;
- 
+  
 }
+
 #logo:hover path{
   fill:#92C8C5
 }
@@ -261,11 +264,11 @@ body{
   outline: none;
   border: none;
   border-bottom:1px solid #4B9592;
-  background:#f8f8fa;
   padding:1%;
   margin-right: 1%;
   width: 70%;
   height: 100%;
+  background: #f8f8fa;
 }
 #srch_btn{
   outline: none;
@@ -337,10 +340,10 @@ body{
   justify-content: center;
   margin-top: 2.3%;
   border-radius:4px;
-  background:rgba(75, 149, 146,0.97);
   color: #F4F4F9;
   border: 1.7px solid #F4F4F9;
   font-weight: bold;
+  background:rgba(75, 149, 146,0.97);
 }
 #AddMovieCard #submitNewMovie:hover{
   cursor: pointer;
@@ -382,8 +385,6 @@ body{
   justify-content: center;
   padding: 1%;
   border-top:1px solid #448884;
-  border-bottom:1px solid #448884;
- 
 }
 .movie_info> *{
   padding: 3% 0;
@@ -441,4 +442,69 @@ margin-bottom: 4%;}
 #back_div button:hover{
   cursor: pointer;
   background:#35706c;
+}
+
+
+
+
+/*toggle dark or light*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 30px;
+  margin-right: 3%;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #162d3f;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #162d3f;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 30px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

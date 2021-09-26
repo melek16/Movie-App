@@ -11,7 +11,7 @@ const Filter = ({search,handleChange,rating,handleRating,hover,handleHover,handl
                 <img  alt="" src='search.svg' />
                 </button>
             </form>
-            <StarRating editable={true} handleRating={handleRating} rating={rating} hover={hover} handleHover={handleHover}/>
+            <StarRating reload={true} handleRating={handleRating} rating={rating} hover={hover} handleHover={handleHover}/>
         </div>
     )
 }
