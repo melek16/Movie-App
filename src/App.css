@@ -2,13 +2,13 @@
   width:6px;
 }
 ::-webkit-scrollbar-track{
-  background: #92C8C5;
+  background: #6b9997;
 }
 ::-webkit-scrollbar-thumb{
-  background: #448884;
+  background: #366864;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #586F7C;
+  background: #475963;
 }
 .App{
  display: flex;
@@ -382,7 +382,7 @@ body{
 }
 .movie_info{
   display:flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 1%;
   border-top:1px solid #448884;
 }

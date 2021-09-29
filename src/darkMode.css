@@ -1,12 +1,4 @@
-::-webkit-scrollbar-track{
-    background: #6b9997;
-  }
-  ::-webkit-scrollbar-thumb{
-    background: #366864;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #475963;
-  }
+
 .darkbody,.darkbody #Search{
     background:#323c42;
       color: white;

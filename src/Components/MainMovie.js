@@ -1,14 +1,16 @@
 import React from 'react'
-import { useLocation,useHistory} from 'react-router-dom'
+import { useLocation,useHistory,useRouteMatch} from 'react-router-dom'
 import StarRating from './StarRating'
 
 const MainMovie = () => {
+    const match=useRouteMatch()
+    console.log(match)
     const history=useHistory()
     const location=useLocation()
     const {title,description,posterURL,rating,trailer,width,height,released,runtime}=location.state
     return (
         <div id="MainMovie" style={{width:width}}>
-        <iframe width={width} height={height} src={`${trailer}?autoplay=1`} title="YouTube video player"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width={width} height={height} src={`${trailer}?autoplay=1`} title="YouTube video player"  frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         <div id="back_div">
             <button onClick={history.goBack}>BACK</button>
             

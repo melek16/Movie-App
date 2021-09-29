@@ -33,16 +33,16 @@ function App() {
      <MovieList listOfMovies={listOfMovies} search={search} rating={hover || rating} showAddMovie={()=>{setNewMovie({title:"",description:"",posterURL:""});setNewRating(0);setNewHover(0);setShowAddMovie(!showAddMovie)}}/>
         </Route>
         <Route exact path='/movie/:movieName'>
-            <MainMovie/>
+       <MainMovie/>
         </Route>
       </Switch>
-      
   <Footer/>
-  
     </div>
     </Router>
+      );
+    }
+      
   
-  );
-}
+  
 
 export default App;
