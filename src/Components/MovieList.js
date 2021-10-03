@@ -1,9 +1,28 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { handleNewHover, handleNewMovieChange, handleNewRating, handleX } from '../actions/actions'
 import MovieCard from './MovieCard'
 
-const MovieList = ({listOfMovies,search,rating,showAddMovie}) => {
-    let arrToShow=rating? listOfMovies.filter(c=>c.rating*2===rating) :listOfMovies
+const MovieList = () => {
+    let search=useSelector(state=>state.search)
+    let listOfMovies=useSelector(state=>state.listOfMovies)
+    const hover = useSelector(state => state.hover)
+    const rating = useSelector(state => state.rating)
+    const dispatch = useDispatch()
+    const showAddMovie=()=>{
+        
+            dispatch(handleNewMovieChange({title:"",description:"",posterURL:""}));
+            dispatch(handleNewRating(0));
+            dispatch(handleNewHover(0));
+            dispatch(handleX())
+        
+    }
+
+
+
+
+    let arrToShow=(hover || rating)? listOfMovies.filter(c=>c.rating*2===(hover || rating)) :listOfMovies
     arrToShow=search ? arrToShow.filter(c=>c.title.toUpperCase().includes(search.toUpperCase())) :arrToShow
     return (
         !arrToShow.length ? <h1 id="no_movie">Didn't find a movie</h1> :

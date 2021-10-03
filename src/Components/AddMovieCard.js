@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { handleNewHover, handleNewMovieChange, handleNewRating, handleSubmit, handleX } from '../actions/actions'
 import StarRating from './StarRating'
 const check=(obj,rating)=>{
     let arr=Object.values(obj)
@@ -12,22 +14,26 @@ const check=(obj,rating)=>{
     return test && rating
 }
 const AddMovieCard = (props) => {
-    const handleSubmit=(e)=>{
+    const newRating = useSelector(state => state.newRating)
+    const newHover = useSelector(state => state.newHover)
+    const newMovie = useSelector(state => state.newMovie)
+    let dispatch=useDispatch()
+const Submit=(e)=>{
         e.preventDefault()
-        if(check(props.newMovie,props.rating)){
-            props.handleSubmit({...props.newMovie,rating:props.rating/2})
+        if(check(newMovie,newRating)){
+            dispatch(handleSubmit({...newMovie,rating:newRating/2}))
         }
-        props.handleX()
+        dispatch(handleX())
     }
     return (
         <div id="AddMovieCard">
-            <span id="x" onClick={props.handleX}>X</span>
-            <form onSubmit={e=>handleSubmit(e)}>
-                <input type="text" placeholder="Title" value={props.newMovie.title} onChange={(e)=>props.handleChange({...props.newMovie,title:e.target.value})} />
-                <input type="text" placeholder="Poster url" value={props.newMovie.posterURL} onChange={(e)=>props.handleChange({...props.newMovie,posterURL:e.target.value})}/>
-                <div><StarRating handleRating={props.handleRating} rating={props.rating} hover={props.hover} handleHover={props.handleHover}/></div>
+            <span id="x" onClick={()=>dispatch(handleX())}>X</span>
+            <form onSubmit={e=>Submit(e)}>
+                <input type="text" placeholder="Title" value={newMovie.title} onChange={(e)=>dispatch(handleNewMovieChange({...newMovie,title:e.target.value}))} />
+                <input type="text" placeholder="Poster url" value={newMovie.posterURL} onChange={(e)=>dispatch(handleNewMovieChange({...newMovie,posterURL:e.target.value}))}/>
+                <div><StarRating add={true} rating={newRating} hover={newHover} handleRating={i=>dispatch(handleNewRating(i))} handleHover={i=>dispatch(handleNewHover(i))}/></div>
                 
-                <textarea type="text" placeholder="Description" rows='7' value={props.newMovie.description} onChange={(e)=>props.handleChange({...props.newMovie,description:e.target.value})}/>
+                <textarea type="text" placeholder="Description" rows='7' value={newMovie.description} onChange={(e)=>dispatch(handleNewMovieChange({...newMovie,description:e.target.value}))}/>
                 <button type="submit" id="submitNewMovie">Add to the list</button>
             </form>
         </div>

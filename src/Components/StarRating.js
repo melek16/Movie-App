@@ -21,6 +21,7 @@ const StarRating = (props) => {
     </div>
   );
 }
+
 StarRating.defaultProps={
   handleRating:()=>{},
   handleHover:()=>{}
