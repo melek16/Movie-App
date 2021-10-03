@@ -1,26 +1,55 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { movies } from '../movies'
 
 const initialState = {
-  value: 0,
+  hover: 0,
+  rating: 0,
+  newHover: 0,
+  newRating:0,
+  search:"",
+  showAddMovie:false,
+  listOfMovies:movies,
+  newMovie:{title:"",description:"",posterURL:""},
+
 }
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
+    handleSearchSubmit:(state)=>{
+        state.search=`${state.search}`
+},
+    handleChange:(state,action)=>{
+        state.search=action.payload
     },
-    decrement: (state) => {
-      state.value -= 1
+    handleSubmit:(state,action)=>{
+        state.listOfMovies.push(action.payload)
+        console.log(action.type)
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    handleHover:(state,action)=>{
+        state.hover=action.payload
     },
+    handleRating:(state,action)=>{
+        state.rating=action.payload
+    },
+    handleNewRating:(state,action)=>{
+        state.newRating=action.payload
+    },
+    handleNewHover:(state,action)=>{
+        state.newHover=action.payload
+    },
+    handleX:(state)=>{
+        state.showAddMovie=!state.showAddMovie
+    },
+    handleNewMovieChange:(state,action)=>{
+        state.newMovie=action.payload
+    }
+    
   },
 })
 
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { handleSearchSubmit,handleChange,handleSubmit,handleHover,handleRating,handleNewRating ,handleNewHover,handleX,handleNewMovieChange} = counterSlice.actions
 
 export default counterSlice.reducer

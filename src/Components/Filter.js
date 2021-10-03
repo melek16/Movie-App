@@ -1,17 +1,18 @@
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { handleChange, handleHover, handleRating, handleSearchSubmit } from '../actions/actions'
+import { handleHover, handleRating, handleSearchSubmit } from '../reducers/counterSlice'
+import { handleChange } from '../reducers/counterSlice'
 import StarRating from './StarRating'
 
 const Filter = () => {
-    let hover=useSelector(state=>state.hover)
-    const rating = useSelector(state => state.rating)
-    let search=useSelector(state=>state.search)
+    let hover=useSelector(state=>state.reducer.hover)
+    const rating = useSelector(state => state.reducer.rating)
+    let search=useSelector(state=>state.reducer.search)
     let dispatch=useDispatch()
     return (
         <div id="filter" onSubmit={e=>{e.preventDefault();dispatch(handleSearchSubmit())}}>
             <form>
-                <input id="Search" type="text" placeholder="Search..." value={search} onChange={e=>dispatch(handleChange(e))}/>
+                <input id="Search" type="text" placeholder="Search..." value={search} onChange={e=>dispatch(handleChange(e.target.value))}/>
                 <button id="srch_btn" type="submit">
                 <img  alt="" src='search.svg' />
                 </button>

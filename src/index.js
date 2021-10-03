@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { allReducers } from './reducers/allReducers';
+import { configureStore } from '@reduxjs/toolkit';
+import allReducer from './reducers/counterSlice';
 
 
-let store=createStore(allReducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
+let store=configureStore(
+ { reducer:{
+    reducer:allReducer
+  }}
+)
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

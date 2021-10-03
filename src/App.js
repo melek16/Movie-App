@@ -11,7 +11,7 @@ import MainMovie from './Components/MainMovie';
 import { useSelector } from 'react-redux';
 
 function App() {
-  const showAddMovie = useSelector(state => state.showAddMovie)
+  const showAddMovie = useSelector(state => state.reducer.showAddMovie)
   const [mode, setMode] = useState(true)  //true = light
   return (
     <Router>

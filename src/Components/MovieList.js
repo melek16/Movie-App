@@ -1,14 +1,15 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { handleNewHover, handleNewMovieChange, handleNewRating, handleX } from '../actions/actions'
+import { handleNewHover, handleNewMovieChange, handleNewRating, handleX } from '../reducers/counterSlice'
 import MovieCard from './MovieCard'
 
 const MovieList = () => {
-    let search=useSelector(state=>state.search)
-    let listOfMovies=useSelector(state=>state.listOfMovies)
-    const hover = useSelector(state => state.hover)
-    const rating = useSelector(state => state.rating)
+    let search=useSelector(state=>state.reducer.search)
+    console.log(search)
+    let listOfMovies=useSelector(state=>state.reducer.listOfMovies)
+    const hover = useSelector(state => state.reducer.hover)
+    const rating = useSelector(state => state.reducer.rating)
     const dispatch = useDispatch()
     const showAddMovie=()=>{
         

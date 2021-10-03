@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { handleNewHover, handleNewMovieChange, handleNewRating, handleSubmit, handleX } from '../actions/actions'
+import { handleNewHover, handleNewMovieChange, handleNewRating, handleSubmit, handleX } from '../reducers/counterSlice'
 import StarRating from './StarRating'
 const check=(obj,rating)=>{
     let arr=Object.values(obj)
@@ -14,9 +14,9 @@ const check=(obj,rating)=>{
     return test && rating
 }
 const AddMovieCard = (props) => {
-    const newRating = useSelector(state => state.newRating)
-    const newHover = useSelector(state => state.newHover)
-    const newMovie = useSelector(state => state.newMovie)
+    const newRating = useSelector(state => state.reducer.newRating)
+    const newHover = useSelector(state => state.reducer.newHover)
+    const newMovie = useSelector(state => state.reducer.newMovie)
     let dispatch=useDispatch()
 const Submit=(e)=>{
         e.preventDefault()

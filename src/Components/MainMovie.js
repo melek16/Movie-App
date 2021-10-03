@@ -19,7 +19,7 @@ const MainMovie = () => {
         <img src={posterURL} alt='' className="mainMovieImg" />
             <div className="movie_info2" >
                 <div><h5>Title: </h5>{title}</div>
-                <div><h5>Rating: </h5> <StarRating rating={rating} editable={false} /></div>
+                <div><h5>Rating: </h5> <StarRating rating={rating}/></div>
                 <div id="desc"><h5>Description:</h5> {description}</div>
                 <div><h5>Released:</h5> {released}</div>
                 <div><h5>Runtime:</h5> {runtime}</div>
