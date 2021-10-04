@@ -13,7 +13,7 @@ const MovieList = () => {
     const dispatch = useDispatch()
     const showAddMovie=()=>{
         
-            dispatch(handleNewMovieChange({title:"",description:"",posterURL:""}));
+            dispatch(handleNewMovieChange({title:"",description:"",posterURL:"",trailer:"",width:"",height:"",released:"",runtime:""}));
             dispatch(handleNewRating(0));
             dispatch(handleNewHover(0));
             dispatch(handleX())

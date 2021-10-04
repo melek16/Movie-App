@@ -9,8 +9,7 @@ const initialState = {
   search:"",
   showAddMovie:false,
   listOfMovies:movies,
-  newMovie:{title:"",description:"",posterURL:""},
-
+  newMovie:{title:"",description:"",posterURL:"",trailer:"",width:"",height:"",released:"",runtime:""}
 }
 
 export const counterSlice = createSlice({
